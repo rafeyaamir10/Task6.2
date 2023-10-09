@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Unit and Integration Testing'
+                echo 'Unit and Integration Tests'
             }
         }
         stage('Code Analysis') {
@@ -18,40 +18,42 @@ pipeline {
         }
         stage('Security Scan') {
             steps {
-                echo 'Security Scanning'
+                echo 'Security Scan'
             }
         }
         stage('Deploy to Staging') {
             steps {
-                echo 'Deployement to Staging'
+                echo 'Deploy to Staging'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                echo 'Integration Testing on Staging Step'
+                echo 'Integration Tests on Staging'
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo 'Deployement to Production'
+                echo 'Deploy to Production'
             }
         }
     }
     post {
         success {
             emailext(
-                subject: "Pipeline Process Successfully Done",
-                body: "The Jenkins pipeline completion successfully.",
-                to: 'rafeyaamir10@gmail.com',
+                subject: "Pipeline Successful",
+                body: "The Jenkins pipeline completed successfully.",
+                to: 'ja.mujeeb.06@gmail.com',
                 attachLog: true
+                // attachmentsPattern: '**/console-log.txt'
             )
         }
         failure {
             emailext(
-                subject: "Pipeline Fail Error",
-                body: "Jenkins pipeline fail. Please make sure the logs for detail are correct.",
-                to: 'rafeyaamir10@gmail.com',
+                subject: "Pipeline Failed",
+                body: "The Jenkins pipeline failed. Please check the logs for details.",
+                to: 'ja.mujeeb.06@gmail.com',
                 attachLog: true
+                // attachmentsPattern: '**/console-log.txt'
             )
         }
     }
