@@ -40,32 +40,18 @@ pipeline {
     post {
         success {
             emailext(
-<<<<<<< Updated upstream
                 subject: "Pipeline Process Successfully Done",
                 body: "The Jenkins pipeline completion successfully.",
                 to: 'rafeyaamir10@gmail.com',
-=======
-                subject: "Pipeline Successful",
-                body: "The Jenkins pipeline completed successfully.",
-                to: 'ja.mujeeb.06@gmail.com',
->>>>>>> Stashed changes
                 attachLog: true
-                // attachmentsPattern: '**/console-log.txt'
             )
         }
         failure {
             emailext(
-<<<<<<< Updated upstream
                 subject: "Pipeline Fail Error",
-                body: "enkins pipeline fail. Please make sure the logs for detail are correct.",
+                body: "Jenkins pipeline fail. Please make sure the logs for detail are correct.",
                 to: 'rafeyaamir10@gmail.com',
-=======
-                subject: "Pipeline Failed",
-                body: "The Jenkins pipeline failed. Please check the logs for details.",
-                to: 'ja.mujeeb.06@gmail.com',
->>>>>>> Stashed changes
                 attachLog: true
-                // attachmentsPattern: '**/console-log.txt'
             )
         }
     }
