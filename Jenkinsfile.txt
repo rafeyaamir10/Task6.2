@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Unit and Integration Tests'
+                echo 'Unit and Integration Testing'
             }
         }
         stage('Code Analysis') {
@@ -18,30 +18,30 @@ pipeline {
         }
         stage('Security Scan') {
             steps {
-                echo 'Security Scan'
+                echo 'Security Scanning'
             }
         }
         stage('Deploy to Staging') {
             steps {
-                echo 'Deploy to Staging'
+                echo 'Deployement to Staging'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                echo 'Integration Tests on Staging'
+                echo 'Integration Testing on Staging Step'
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo 'Deploy to Production'
+                echo 'Deployement to Production'
             }
         }
     }
     post {
         success {
             emailext(
-                subject: "Pipeline Successful",
-                body: "The Jenkins pipeline completed successfully.",
+                subject: "Pipeline Process Successfully Done",
+                body: "The Jenkins pipeline completion successfully.",
                 to: 'rafeyaamir10@gmail.com',
                 attachLog: true
                 // attachmentsPattern: '**/console-log.txt'
@@ -49,8 +49,8 @@ pipeline {
         }
         failure {
             emailext(
-                subject: "Pipeline Failed",
-                body: "The Jenkins pipeline failed. Please check the logs for details.",
+                subject: "Pipeline Fail Error",
+                body: "enkins pipeline fail. Please make sure the logs for detail are correct.",
                 to: 'rafeyaamir10@gmail.com',
                 attachLog: true
                 // attachmentsPattern: '**/console-log.txt'
